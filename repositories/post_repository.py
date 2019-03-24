@@ -32,8 +32,8 @@ class PostRepository():
             from_db = Post(from_db)
         return from_db
 
-    def find(self, find_attrs):
-        from_db = self.collection.find(find_attrs)
+    def find(self, find_attrs, **kwargs):
+        from_db = self.collection.find(find_attrs, **kwargs)
         if from_db is not None:
             from_db = [Post(attrs) for attrs in from_db]
         return from_db
