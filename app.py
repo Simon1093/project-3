@@ -28,7 +28,7 @@ def page(page):
     if from_db is None:
         from_db = []
     posts = [post.to_json() for post in from_db]
-    return render_template('posts.html', posts=posts)
+    return render_template('posts.html', posts=posts, current_page=page)
 
 
 @app.route('/post/<post_id>')
@@ -37,7 +37,7 @@ def post(post_id):
         post_id = ObjectId(post_id)
     except InvalidId:
         return redirect(f'/page/0')
-    from_db = post.find_one({'_id': post_id})
+    from_db = post_repo.find_one({'_id': post_id})
     if from_db is None:
         return redirect(f'/page/0')
     post = from_db.to_json()

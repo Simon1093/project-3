@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+      <h4><strong>{{ post['title'] }}</strong></h4>
+      <p>{{ post['datetime'] }}</p>
+      <hr>
+      <p>{{ post['text']|replace('\n', '<br>'|safe) }}</p>
+    </div>
+    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+  </div>
+</div>
+{% endblock %}

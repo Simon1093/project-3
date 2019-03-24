@@ -15,13 +15,3 @@ build: use_secrets
 
 up: down build
 	docker-compose up -d
-
-unit: up
-	docker-compose exec -T web pytest tests/unit/
-
-integration: up
-	docker-compose exec -T web pytest tests/integration/
-
-test: up
-	docker-compose exec -T web pytest tests/unit/
-	docker-compose exec -T web pytest tests/integration/
