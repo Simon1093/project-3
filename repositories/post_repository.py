@@ -33,7 +33,8 @@ class PostRepository():
         return from_db
 
     def find(self, find_attrs, **kwargs):
-        from_db = self.collection.find(find_attrs, **kwargs).sort('$natural', DESCENDING)
+        from_db = self.collection.find(find_attrs, **kwargs).sort('$natural',
+                                                                  DESCENDING)
         if from_db is not None:
             from_db = [Post(attrs) for attrs in from_db]
         return from_db
