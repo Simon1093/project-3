@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: '.'
+    image: '${APP_NAME}:latest'
+    env_file: './deploy/.env'
+    container_name: 'web'
+    ports:
+      - '8000:8000'
